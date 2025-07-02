@@ -483,10 +483,10 @@
             background-color: #fdfdfd; /* Slightly darker white for answer background */
         }
 
-        .faq-question.active + .faq-answer */{
+        .faq-question.active + .faq-answer {
             max-height: 300px; /* Increased max-height for content - adjust as needed */
             padding-top: 15px; /* More padding top when open */
-        }/*
+        }
 
         /* Final Call to Action Section Specifics */
         #cta-final {
@@ -1382,6 +1382,17 @@
                     answer.style.paddingTop = '15px';
                 }
             });
+        });
+        // Initialize governorates and FAQ on page load
+        document.addEventListener('DOMContentLoaded', () => {
+    // Ensure all FAQ answers are hidden on load - هذا الجزء يجب مسحه أيضًا
+        document.querySelectorAll('.faq-answer').forEach(answer => {
+            answer.style.maxHeight = '0'; 
+            answer.style.paddingTop = '0';
+        });
+            populateGovernorates();
+            updateOrderSummary();
+            // Initial update of summary on load
         });
 
         // Modal (Order Form) Functionality
